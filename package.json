@@ -1,8 +1,8 @@
 {
-  "name": "reddit-fake",
+  "name": "randomuser",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --config=webpack.config.dev.js",
     "hot": "cross-env NODE_ENV=development webpack-dev-server --port 3000 --hot --progress --colors --inline --content-base public/ --open --config=webpack.config.dev.js",
@@ -16,6 +16,7 @@
     "bluebird": "^3.5.1",
     "classnames": "^2.2.6",
     "lodash": "^4.17.10",
+    "moment": "^2.22.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-modal": "^3.5.1",

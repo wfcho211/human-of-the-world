@@ -6,13 +6,16 @@ import UserActions from '~/actions/UserActions';
 
 // Components
 import Waypoint from 'react-waypoint';
+import ProfileModal from './ProfileModal';
 
 export default class UserList extends Component {
     constructor() {
         super();
 
         this.state = {
+            user        : {},
             currentPage : 1,
+            isModalOpen : false,
             isLoading   : true
         };
 
@@ -42,7 +45,7 @@ export default class UserList extends Component {
 
     render() {
         const { items } = this.props;
-        const { isLoading } = this.state;
+        const { user, isModalOpen, isLoading } = this.state;
 
         return (
             <div className="container mt-5 mb-5">
@@ -53,7 +56,7 @@ export default class UserList extends Component {
                                 return (
                                     <div key={index}
                                         className="UserList-item col col-lg-6 col-12 bg-white border"
-                                        onClick={this._onClick.bind(this, item.id)}
+                                        onClick={this._onClick.bind(this, item)}
                                     >
                                         <div className="UserList-item-inner p-3">
                                             {this.renderItem(item)}
@@ -72,40 +75,45 @@ export default class UserList extends Component {
                         </div>
                     </Waypoint>
                 }
+
+                {isModalOpen &&
+                    <ProfileModal
+                        user={user}
+                        isOpen={isModalOpen}
+                        closeModal={ ()=> this.setState({ isModalOpen: false, user: {} }) }
+                    />
+                }
             </div>
         )
     }
 
-    renderItem(item) {
+    renderItem(user) {
         return(
             <div className="row">
                 <div className="UserList-item-picture col col-md-3 col-12">
-                    <img src={item.picture.large} />
+                    <img src={user.picture.large} />
                 </div>
                 <div className="UserList-item-details col col-md-9 col-12">
                     <div className="UserList-item-name">
-                        {`${capitalize(item.name.title)} ${capitalize(item.name.first)} ${capitalize(item.name.last)}`}
+                        {`${capitalize(user.name.title)} ${capitalize(user.name.first)} ${capitalize(user.name.last)}`}
                     </div>
                     <div className="UserList-item-cell">
                         <label>Mobile</label>
-                        {item.cell}
-                    </div>
-                    <div className="UserList-item-phone">
-                        <label>Phone</label>
-                        {item.phone}
+                        {user.cell}
                     </div>
                     <div className="UserList-item-email">
                         <label>Email</label>
-                        <a href={`mailto:${item.email}`}>{item.email}</a>
+                        <a href={`mailto:${user.email}`}>{user.email}</a>
                     </div>
                 </div>
             </div>
         )
     }
 
-    _onClick(id, e) {
+    _onClick(user, e) {
         e.preventDefault();
 
+        this.setState({ user, isModalOpen: true });
     }
 
     _onInview() {

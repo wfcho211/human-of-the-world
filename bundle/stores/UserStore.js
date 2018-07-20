@@ -9,7 +9,6 @@ class UserStore {
         this.storeError = null;
         this.storeAction = null;
 
-        this.item = {};
         this.items = [];
     }
 

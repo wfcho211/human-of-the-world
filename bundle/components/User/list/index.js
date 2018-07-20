@@ -49,6 +49,12 @@ export default class UserList extends Component {
 
         return (
             <div className="container mt-5 mb-5">
+                {isLoading &&
+                    <div className="text-center mt-3 mb-3">
+                        <i className="fas fa-spinner fa-spin" style={{ color: '#dddddd', fontSize: '50px' }}></i>
+                    </div>
+                }
+
                 {!isLoading &&
                     <div className="row">
                         {

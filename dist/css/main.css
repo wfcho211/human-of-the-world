@@ -1,0 +1,23 @@
+.app-header {
+  min-width: 320px;
+  position: relative;
+  height: 60px;
+  user-select: none;
+  overflow: hidden; }
+  .app-header-inner {
+    color: #fff;
+    background-color: #ed1c24;
+    padding: 10px;
+    min-width: 320px;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px; }
+    @media (min-width: 992px) {
+      .app-header-inner {
+        padding: 10px 20px; } }
+
+
+/*# sourceMappingURL=main.css.map*/

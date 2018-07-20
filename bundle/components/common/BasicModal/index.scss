@@ -1,0 +1,26 @@
+@import '../../../../sass/variables';
+
+.BasicModal {
+
+  bottom: auto;
+  left: 50%;
+  right: auto;
+  top: 30%;
+  position: fixed;
+  transform: translate(-50%, 0);
+  width: 100%;
+  line-height: 1.75;
+
+  &-inner {
+    background-color: #ffffff;
+    border-radius: 0;
+  }
+
+  @media (min-width: $screen-sm) {
+    width: 60%;
+  }
+
+  @media (min-width: $screen-md) {
+    width: 40%;
+  }
+}

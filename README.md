@@ -48,4 +48,4 @@ $ npm hot
 ```
 $ yarn hot
 ```
-For examples of the application in action, go to https://random-user-1121.herokuapp.com/
+For examples of the application in action, go to https://human-of-the-world.herokuapp.com/
